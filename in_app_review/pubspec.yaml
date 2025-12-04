@@ -45,6 +45,8 @@ flutter:
         pluginClass: InAppReviewPlugin
       macos:
         pluginClass: InAppReviewPlugin
+      ohos:
+        pluginClass: InAppReviewPlugin
 
 screenshots:
   - description: A screenshot of the iOS rating pop-up.
