@@ -1,4 +1,4 @@
-import deviceInfo from '@kit.DeviceInfoKit';
+import { deviceInfo } from '@kit.BasicServicesKit';
 import { commentManager} from '@kit.AppGalleryKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -49,11 +49,10 @@ export default class InAppReviewPlugin implements FlutterPlugin, MethodCallHandl
   onMethodCall(call: MethodCall, result: MethodResult): void {
     switch (call.method) {
       case "requestReview":
-        requestReview(result)
+        this.requestReview(result)
         break;
       case "isAvailable":
-        let deviceInfoObj = deviceInfo.getDeviceInfo();
-        let sdkVersion = deviceInfoObj.sdkApiVersion;
+        let sdkVersion = deviceInfo.sdkApiVersion;
         // HarmonyOS 6.0 对应 API 20
         result.success(sdkVersion >= 20);
       case "openStoreListing":
